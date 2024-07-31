@@ -10,7 +10,7 @@ metadata:
 spec:
   type: website
   lifecycle: experimental
-  owner: team-demo
+  owner: guest
   system: demo-system
   providesApis:
     - demo-api
@@ -25,7 +25,7 @@ metadata:
 spec:
   type: openapi
   lifecycle: experimental
-  owner: team-demo
+  owner: guest
   definition:
     type: openapi
     content: |
@@ -54,4 +54,4 @@ metadata:
   name: demo-system
   description: The system encompassing the demo website and related components
 spec:
-  owner: team-demo
+  owner: guest
