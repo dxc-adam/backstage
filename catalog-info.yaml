@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: demo-website
+  description: A demo website for showcasing Backstage capabilities
+  tags:
+    - website
+    - demo
+    - backstage
+spec:
+  type: website
+  lifecycle: experimental
+  owner: team-demo
+  system: demo-system
+  providesApis:
+    - demo-api
+  dependsOn:
+    - api:some-dependency-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: demo-api
+  description: The API provided by the demo website
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-demo
+  definition:
+    type: openapi
+    content: |
+      openapi: 3.0.0
+      info:
+        title: Demo API
+        version: 1.0.0
+      paths:
+        /demo:
+          get:
+            summary: Demo endpoint
+            responses:
+              '200':
+                description: Successful response
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        message:
+                          type: string
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: demo-system
+  description: The system encompassing the demo website and related components
+spec:
+  owner: team-demo
